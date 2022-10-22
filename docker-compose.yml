@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  txt2txt:
+    restart: always
+    build: .
+    container_name: 'lab-tools'
+    ports:
+      - '8050:8050'
+    working_dir: '/lab-tools/'
+    tty: true
+    volumes:
+      - ./:/lab-tools/
+    command: python index.py
