@@ -2,11 +2,11 @@ import shutil
 import os
 from dash.dependencies import Input, Output, State
 import dash_bootstrap_components as dbc
-from dash import dcc
-from ...api.img_on_excel.core import EmbedImageToExcel
+from dash import dcc, callback
+from ..api.core import EmbedImageToExcel
 
-def enable_download(app):
-    @app.callback(
+def enable_download():
+    @callback(
         Output("embed-image-to-excel-dlbutton", "disabled"),
         Output("embed-image-to-excel-filename", "data"),
         Input("embed-image-to-excel-upload", "isCompleted"),
@@ -24,8 +24,8 @@ def enable_download(app):
         else:
             return True, ""
 
-def download_result(app):
-    @app.callback(
+def download_result():
+    @callback(
         Output("download-file", "data"),
         Input("embed-image-to-excel-dlbutton", "n_clicks"),
         Input("embed-image-to-excel-upload", "upload_id"),
