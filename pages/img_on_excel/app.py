@@ -5,7 +5,7 @@ from .components.input.input import input
 from .components.output.output import output
 from .callbacks.embed_image_to_excel import enable_download, download_result
 
-dash.register_page(__name__, path='/img_on_excel')
+dash.register_page(__name__, path='/img-on-excel')
 
 layout = html.Div(
     [
