@@ -18,3 +18,4 @@ RUN pip install --upgrade pip \
     && rm -r ~/.cache/pip
 
 COPY . $prj_dir
+CMD ["python", "index.py"]
